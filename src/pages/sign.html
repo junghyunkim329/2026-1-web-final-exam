@@ -43,8 +43,11 @@
         <div class="login-container">
           <h1>회원가입</h1>
           <input type="text" id="signup-id" class="input" placeholder="아이디" />
-          <input type="password" id="signup-pw" class="input" placeholder="비밀번호" />
-          <button onclick="signUp()">회원가입</button>
+          <div class="password-field">
+            <input type="password" id="signup-pw" class="input" placeholder="비밀번호" />
+            <button type="button" id="toggle-signup-pw" class="password-toggle" aria-label="비밀번호 토글"></button>
+          </div>
+          <button class="login-button" onclick="signUp()">회원가입</button>
           <p>이미 계정이 있으신가요? <a href="login.html" id="sign-link">로그인</a></p>
         </div>
       </div>

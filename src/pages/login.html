@@ -43,17 +43,24 @@
       <div class="login-container">
         <h1>로그인</h1>
         <input type="text" id="login-id" class="input" placeholder="아이디" />
-        <input
-          type="password"
-          id="login-pw"
-          class="input"
-          placeholder="비밀번호"
-        />
-        <button onclick="logIn()">로그인</button>
+        <div class="password-field">
+          <input
+            type="password"
+            id="login-pw"
+            class="input"
+            placeholder="비밀번호"
+          />
+          <button
+            type="button"
+            id="toggle-login-pw"
+            class="password-toggle"
+            aria-label="비밀번호 토글"
+          ></button>
+        </div>
+        <button class="login-button" onclick="logIn()">로그인</button>
         <p>
           계정이 없으신가요? <a id="sign-link" href="sign.html">회원가입</a>
         </p>
-        <!-- <button id="logout" onclick="logOut()">로그아웃</button> -->
       </div>
     </div>
     <footer>© 김정현진과 유청림성준. All rights reserved.</footer>

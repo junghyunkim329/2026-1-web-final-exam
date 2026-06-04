@@ -34,6 +34,25 @@ function logOut() {
   sessionStorage.removeItem('loggedInUser')
 }
 
+function setupPasswordToggle(inputId, buttonId) {
+  const input = document.getElementById(inputId)
+  const button = document.getElementById(buttonId)
+  if (!input || !button) return
+
+  const updateIcon = () => {
+    const hidden = input.type === 'password'
+    button.style.backgroundImage = hidden
+      ? 'url("/assets/hide.png")'
+      : 'url("/assets/eye.png")'
+  }
+
+  updateIcon()
+  button.addEventListener('click', () => {
+    input.type = input.type === 'password' ? 'text' : 'password'
+    updateIcon()
+  })
+}
+
 // 페이지가 로드될 때 마이페이지 환영 문구 세팅
 window.addEventListener('DOMContentLoaded', () => {
   const welcome = document.getElementById('welcome')
@@ -66,6 +85,9 @@ window.addEventListener('DOMContentLoaded', () => {
   if (loginBox) {
     loginBox.style.display = user ? 'none' : ''
   }
+
+  setupPasswordToggle('login-pw', 'toggle-login-pw')
+  setupPasswordToggle('signup-pw', 'toggle-signup-pw')
 })
 
 document.addEventListener('DOMContentLoaded', () => {
