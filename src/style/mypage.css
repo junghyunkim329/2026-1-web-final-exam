@@ -1,27 +1,29 @@
 .mypage-container {
-  margin: 40px;
+  margin: 70px;
 }
 
-.mypage-section {
+.mypage-section-top {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-  margin-top: 24px;
+  margin: 24px auto;
 }
 
 .note-section,
-.todo-section {
+.todo-section,
+.review-notes {
   flex: 1 1 360px;
   min-width: 320px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
   background: #ffffff;
   border: 1px solid #e5e5e5;
   border-radius: 18px;
   padding: 20px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
 }
 
 .note-section h2,
-.todo-section h2 {
+.todo-section h2,
+.review-notes h2 {
   margin-bottom: 16px;
   font-size: 18px;
   color: #333;
@@ -120,4 +122,20 @@
   color: #666;
   cursor: pointer;
   font-size: 13px;
+}
+
+.bottom-link {
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+  margin-top: 80px;
+  color: #ccc;
+}
+
+#logout-button {
+  font-size: 12px;
+  background-color: #fff;
+  color: #ccc;
+  border: none;
+  cursor: pointer;
 }
