@@ -42,7 +42,7 @@ window.addEventListener('DOMContentLoaded', () => {
     welcome.innerText = user + '님 환영합니다!'
   }
 
-  const logoutEl = document.getElementById('logout')
+  const logoutEl = document.getElementById('logout-button')
   if (logoutEl) {
     if (user) {
       logoutEl.innerText = '로그아웃'
@@ -65,5 +65,20 @@ window.addEventListener('DOMContentLoaded', () => {
   const loginBox = document.querySelector('.header-right .login')
   if (loginBox) {
     loginBox.style.display = user ? 'none' : ''
+  }
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+  const backButton = document.getElementById('btn-back')
+
+  if (backButton) {
+    backButton.addEventListener('click', () => {
+      // 브라우저에 이전 페이지 기록이 있는지 확인
+      if (document.referrer && window.history.length > 1) {
+        window.history.back() // 이전 페이지로 이동
+      } else {
+        window.location.href = '/' // 이전 기록이 없으면 메인 홈('/')으로 이동
+      }
+    })
   }
 })
