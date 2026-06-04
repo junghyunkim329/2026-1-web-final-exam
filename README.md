@@ -1,45 +1,20 @@
-# 문제 만들기
+# 로그인 기능 설명
 
-1. `server.html`에 있는 내용을 복사하여 사용
+**로컬 저장소에 계정 정보를 저장하고 세션 저장소에 로그인 상태를 유지하는 방식**
 
-```html
-<div class="question-grid" id="1st">
-  <h3>
-    리눅스 시스템의 구조 중 하드웨어를 제어하고 운영체제의 핵심 역할을 수행하는
-    것은 무엇입니까?
-  </h3>
-  <form action="">
-    <!-- 1번 보기 -->
-    <div class="option">
-      <input type="radio" id="shell" name="linux_struct" value="shell" />
-      <label for="shell">쉘(Shell)</label>
-    </div>
+- 회원가입 화면에서 아이디와 비밀번호 입력 후 가입 버튼 클릭하면 저장됨
+- 로그인 화면에서 아이디와 비밀번호를 입력하면 저장된 정보와 비교해서 맞으면 로그인 처리함
+- 로그인 성공 시 세션 저장소에 사용자 이름을 기록하고 마이페이지로 이동함
+- 로그아웃 버튼 클릭 시 세션에서 로그인 정보를 제거하고 인덱스 페이지로 이동함
 
-    <!-- 2번 보기 -->
-    <div class="option">
-      <input type="radio" id="kernel" name="linux_struct" value="kernel" />
-      <label for="kernel">커널(Kernel)</label>
-    </div>
+# 기능 활용 방법
 
-    <!-- 3번 보기 -->
-    <div class="option">
-      <input type="radio" id="library" name="linux_struct" value="library" />
-      <label for="library">라이브러리(Library)</label>
-    </div>
-
-    <!-- 4번 보기 -->
-    <div class="option">
-      <input type="radio" id="app" name="linux_struct" value="app" />
-      <label for="app">응용 프로그램(Application)</label>
-    </div>
-  </form>
-</div>
+```js
+function getUserDataKey(type, user) {
+  return `${type}_${user}`
+}
 ```
 
-2. 문제 추가 시 `<div class="question-grid" id="1st">` id 변경하기
-3. `<input type="radio" id="shell" name="linux_struct" value="shell" />`의 `name`처럼 `js`로 값을 가져올 수 있는 요소 넣기
-4. 안 헷갈리게 주석 잘 넣기
-
-# 참고
-
-전공 도움 페이지는 김정현이 수정 예정입니다.
+이런 형식으로 디비 없이 사용자마다 데이터 관리 가능
+혹은 `${type}_all`의 형식으로 모든 사용자가 데이터를 볼 수 있게도 가능
+(all권한은 코드 추가 필요)
