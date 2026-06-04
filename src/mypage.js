@@ -75,6 +75,7 @@ window.addEventListener('DOMContentLoaded', () => {
       const newNote = noteInput.value.trim()
       saveUserNote(user, newNote)
       noteDisplay.innerText = newNote || '저장된 메모가 없습니다.'
+      noteInput.value = ''
       alert('메모가 저장되었습니다.')
     })
   }
