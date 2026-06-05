@@ -33,11 +33,16 @@
   display: flex;
   gap: 16px;
   overflow-x: auto;
+  overflow-y: hidden;
   padding-bottom: 12px;
   scroll-snap-type: x mandatory;
+  -ms-overflow-style: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(116, 118, 212, 0.55) transparent;
 }
 
 .review-notes-list::-webkit-scrollbar {
+  display: block;
   height: 8px;
 }
 
