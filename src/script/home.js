@@ -52,6 +52,18 @@ const btn = document.getElementById('topBtn')
 
 window.addEventListener('scroll', () => {
   btn.style.display = window.scrollY > 300 ? 'block' : 'none'
+
+  // ✅ 스크롤할 때 헤더 배경색 변경 (index.html에서만 적용)
+  const header = document.querySelector('header')
+  if (header) {
+    if (window.scrollY > 0) {
+      header.style.backgroundColor = '#ffffff'
+      header.style.borderBottom = '1px solid #eee'
+    } else {
+      header.style.backgroundColor = 'transparent'
+      header.style.borderBottom = 'none'
+    }
+  }
 })
 
 btn.onclick = () => {
