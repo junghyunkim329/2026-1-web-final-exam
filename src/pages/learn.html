@@ -72,18 +72,23 @@
           <div class="filter-group">
             <h4>종류</h4>
             <label class="filter-item"
-              ><input type="checkbox" /> 기초 과정</label
+              ><input type="checkbox" data-filter="기초과정" /> 기초 과정</label
             >
-            <label class="filter-item">
-              <input type="checkbox" /> 대회 정보</label
-            >
-            <label class="filter-item"><input type="checkbox" /> 실습</label>
             <label class="filter-item"
-              ><input type="checkbox" /> 언어 학습</label
+              ><input type="checkbox" data-filter="대회정보" /> 대회 정보</label
             >
-            <label class="filter-item"><input type="checkbox" /> 보안</label>
             <label class="filter-item"
-              ><input type="checkbox" /> 코딩 테스트</label
+              ><input type="checkbox" data-filter="실습" /> 실습</label
+            >
+            <label class="filter-item"
+              ><input type="checkbox" data-filter="언어학습" /> 언어 학습</label
+            >
+            <label class="filter-item"
+              ><input type="checkbox" data-filter="보안" /> 보안</label
+            >
+            <label class="filter-item"
+              ><input type="checkbox" data-filter="코딩테스트" /> 코딩
+              테스트</label
             >
           </div>
         </aside>
@@ -292,5 +297,6 @@
       해당 페이지는 드림핵 홈페이지를 복사하였습니다.<br />© 김정현진과
       유청림성준. All rights reserved.
     </footer>
+    <script src="../script/filter.js"></script>
   </body>
 </html>

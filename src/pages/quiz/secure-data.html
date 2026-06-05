@@ -14,8 +14,18 @@
     <link rel="stylesheet" href="../../style/banner.css" />
     <link rel="stylesheet" href="../../style/card.css" />
     <link rel="stylesheet" href="../../style/question.css" />
+    <link rel="stylesheet" href="../../style/quiz.css" />
   </head>
   <body>
+    <div class="sticky-status-bar">
+      <div class="status-timer" id="timer-display">⏱️ 남은 시간 - 15:00</div>
+      <div class="status-progress-container">
+        <div class="status-progress-bar">
+          <div class="status-progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="status-progress-text" id="progress-text">0 / 15</div>
+      </div>
+    </div>
     <header>
       <div class="header-left">
         <a href="../../../index.html" class="logo">
@@ -31,6 +41,7 @@
         <ul class="nav-links">
           <li><a href="../learn.html">학습</a></li>
           <li class="active"><a href="./quizzes.html">퀴즈</a></li>
+          <li><a href="../../pages/mistake.html">오답노트</a></li>
         </ul>
       </div>
       <div class="header-right">
@@ -66,7 +77,7 @@
     </div>
 
     <div class="question_list">
-      <div class="question_box">
+      <div class="question_box" data-qnum="sq1">
         <div class="q_num">Q1</div>
         <div class="q_reference text_ref">
           <p><strong>[보기]</strong></p>
@@ -99,7 +110,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="sq2">
         <div class="q_num">Q2</div>
         <div class="q_reference text_ref">
           <p><strong>[보기]</strong></p>
@@ -132,7 +143,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="sq3">
         <div class="q_num">Q3</div>
         <p class="q_text">순차 자료구조와 관련된 것은?</p>
         <div class="q_choices">
@@ -148,7 +159,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="sq4">
         <div class="q_num">Q4</div>
         <p class="q_text">선형 리스트에 대한 설명으로 틀린 것은?</p>
         <div class="q_choices">
@@ -171,7 +182,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="sq5">
         <div class="q_num">Q5</div>
         <p class="q_text">
           선형 리스트를 L[m][n]의 2차원 배열로 구현할 때, 선형 리스트에 저장할
@@ -195,7 +206,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="sq6">
         <div class="q_num">Q6</div>
         <p class="q_text">연결 리스트를 사용하기에 적합한 경우는?</p>
         <div class="q_choices">
@@ -218,7 +229,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="sq7">
         <div class="q_num">Q7</div>
         <p class="q_text">연결 리스트에 대한 설명으로 거리가 먼 것은?</p>
         <div class="q_choices">
@@ -241,7 +252,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="sq8">
         <div class="q_num">Q8</div>
         <div class="q_reference text_ref">
           <p><strong>[보기]</strong></p>
@@ -266,7 +277,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="sq9">
         <div class="q_num">Q9</div>
         <p class="q_text">
           n개의 데이터로 구성된 선형 리스트를 단순 연결 리스트로 표현하고자
@@ -292,7 +303,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="sq10">
         <div class="q_num">Q10</div>
         <p class="q_text">
           자료들이 단순 연결 리스트에 다음과 같이 구성되어 있을 때, 자료 B를
@@ -326,7 +337,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="sq11">
         <div class="q_num">Q11</div>
         <div class="q_reference text_ref">
           <p><strong>[보기]</strong></p>
@@ -351,7 +362,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="sq12">
         <div class="q_num">Q12</div>
         <p class="q_text">스택 메모리에 대한 정보의 입출력 방식은?</p>
         <div class="q_choices">
@@ -362,7 +373,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="sq13">
         <div class="q_num">Q13</div>
         <p class="q_text">스택의 응용 분야와 거리가 먼 것은?</p>
         <div class="q_choices">
@@ -384,7 +395,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="sq14">
         <div class="q_num">Q14</div>
         <p class="q_text">
           서브프로그램이 호출될 때 사용되는 자료 구조로 옳은 것은?
@@ -399,7 +410,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="sq15">
         <div class="q_num">Q15</div>
         <div class="q_reference text_ref">
           <p><strong>[보기]</strong></p>
@@ -425,8 +436,26 @@
       </div>
     </div>
     <div class="submit_box">
-      <button type="button" class="btn_submit">제출하기</button>
+      <button type="button" class="btn_submit" id="btn-submit">제출하기</button>
     </div>
+
+    <div class="custom-modal-overlay" id="result-modal">
+      <div class="custom-modal">
+        <h2 id="modal-title">퀴즈 결과</h2>
+        <p id="modal-content">정답: -개 / 오답: -개</p>
+        <div class="custom-modal-buttons">
+          <button type="button" class="btn-close" id="btn-modal-close">
+            확인
+          </button>
+          <a href="wrong_notes.html" class="btn-wrong-notes"
+            >오답노트 바로가기</a
+          >
+        </div>
+      </div>
+    </div>
+
     <footer>© 김정현진과 유청림성준. All rights reserved.</footer>
+
+    <script src="../../script/quiz.js"></script>
   </body>
 </html>

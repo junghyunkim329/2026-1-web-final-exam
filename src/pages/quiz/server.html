@@ -14,8 +14,18 @@
     <link rel="stylesheet" href="../../style/banner.css" />
     <link rel="stylesheet" href="../../style/card.css" />
     <link rel="stylesheet" href="../../style/question.css" />
+    <link rel="stylesheet" href="../../style/quiz.css" />
   </head>
   <body>
+    <div class="sticky-status-bar">
+      <div class="status-timer" id="timer-display">⏱️ 남은 시간 - 15:00</div>
+      <div class="status-progress-container">
+        <div class="status-progress-bar">
+          <div class="status-progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="status-progress-text" id="progress-text">0 / 15</div>
+      </div>
+    </div>
     <header>
       <div class="header-left">
         <a href="../../../index.html" class="logo">
@@ -31,6 +41,7 @@
         <ul class="nav-links">
           <li><a href="../learn.html">학습</a></li>
           <li class="active"><a href="./quizzes.html">퀴즈</a></li>
+          <li><a href="../../pages/mistake.html">오답노트</a></li>
         </ul>
       </div>
       <div class="header-right">
@@ -63,7 +74,7 @@
     </div>
 
     <div class="question_list">
-      <div class="question_box">
+      <div class="question_box" data-qnum="serq1">
         <div class="q_num">Q1</div>
         <p class="q_text">
           리눅스 시스템의 구조 중 하드웨어를 제어하고 운영체제의 핵심 역할을
@@ -88,7 +99,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="serq2">
         <div class="q_num">Q2</div>
         <p class="q_text">
           현재 리눅스의 표준 쉘로 사용되며, 방향키 기능을 지원하고 본 쉘(sh)과
@@ -99,7 +110,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="serq3">
         <div class="q_num">Q3</div>
         <p class="q_text">
           관리자 계정(root)으로 로그인했을 때 터미널에 표시되는 프롬프트 기호는
@@ -110,7 +121,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="serq4">
         <div class="q_num">Q4</div>
         <p class="q_text">
           mkdir 명령어로 'a/b/c'와 같이 하위 디렉토리까지 한 번에 생성하려고 할
@@ -124,7 +135,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="serq5">
         <div class="q_num">Q5</div>
         <p class="q_text">
           파일이나 디렉토리를 삭제하는 rm 명령어에서, 비어 있지 않은 디렉토리를
@@ -135,7 +146,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="serq6">
         <div class="q_num">Q6</div>
         <p class="q_text">
           파일의 수정 시간을 현재 시간으로 변경하거나 내용이 없는 빈 파일을
@@ -146,7 +157,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="serq7">
         <div class="q_num">Q7</div>
         <p class="q_text">
           ls -l 실행 결과에서 파일 유형이 'l'로 표시된다면 이는 무엇을
@@ -168,7 +179,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="serq8">
         <div class="q_num">Q8</div>
         <p class="q_text">
           파일의 권한이 rwxr-xr-x일 때, 이를 8진수 숫자로 변환하면 무엇입니까?
@@ -179,7 +190,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="serq9">
         <div class="q_num">Q9</div>
         <p class="q_text">
           다음 중 윈도우의 '바로가기'와 유사하며 원본 파일의 경로 정보를 담고
@@ -201,7 +212,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="serq10">
         <div class="q_num">Q10</div>
         <p class="q_text">
           명령어의 결과값을 기존 파일의 내용 뒤에 이어서 추가(append)하려고 할
@@ -212,7 +223,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="serq11">
         <div class="q_num">Q11</div>
         <p class="q_text">
           vi 편집기의 명령 모드에서 현재 커서가 위치한 한 줄 전체를
@@ -226,7 +237,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="serq12">
         <div class="q_num">Q12</div>
         <p class="q_text">
           vi 편집기에서 수정된 내용을 저장하고 강제로 종료하기 위해 사용하는
@@ -237,7 +248,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="serq13">
         <div class="q_num">Q13</div>
         <p class="q_text">
           find 명령어를 사용하여 현재 디렉토리 이하에서 파일 이름이 'test'로
@@ -263,7 +274,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="serq14">
         <div class="q_num">Q14</div>
         <p class="q_text">
           grep 명령어를 사용할 때 대소문자를 구분하지 않고 패턴을 검색하도록
@@ -274,7 +285,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="serq15">
         <div class="q_num">Q15</div>
         <p class="q_text">
           실행 중인 프로세스의 상태를 확인할 때, 백그라운드 프로세스를 포함하여
@@ -290,8 +301,26 @@
       </div>
     </div>
     <div class="submit_box">
-      <button type="button" class="btn_submit">제출하기</button>
+      <button type="button" class="btn_submit" id="btn-submit">제출하기</button>
     </div>
+
+    <div class="custom-modal-overlay" id="result-modal">
+      <div class="custom-modal">
+        <h2 id="modal-title">퀴즈 결과</h2>
+        <p id="modal-content">정답: -개 / 오답: -개</p>
+        <div class="custom-modal-buttons">
+          <button type="button" class="btn-close" id="btn-modal-close">
+            확인
+          </button>
+          <a href="wrong_notes.html" class="btn-wrong-notes"
+            >오답노트 바로가기</a
+          >
+        </div>
+      </div>
+    </div>
+
     <footer>© 김정현진과 유청림성준. All rights reserved.</footer>
+
+    <script src="../../script/quiz.js"></script>
   </body>
 </html>

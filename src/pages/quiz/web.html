@@ -14,8 +14,18 @@
     <link rel="stylesheet" href="../../style/banner.css" />
     <link rel="stylesheet" href="../../style/card.css" />
     <link rel="stylesheet" href="../../style/question.css" />
+    <link rel="stylesheet" href="../../style/quiz.css" />
   </head>
   <body>
+    <div class="sticky-status-bar">
+      <div class="status-timer" id="timer-display">⏱️ 남은 시간 - 15:00</div>
+      <div class="status-progress-container">
+        <div class="status-progress-bar">
+          <div class="status-progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="status-progress-text" id="progress-text">0 / 15</div>
+      </div>
+    </div>
     <header>
       <div class="header-left">
         <a href="../../../index.html" class="logo">
@@ -31,6 +41,7 @@
         <ul class="nav-links">
           <li><a href="../learn.html">학습</a></li>
           <li class="active"><a href="./quizzes.html">퀴즈</a></li>
+          <li><a href="../../pages/mistake.html">오답노트</a></li>
         </ul>
       </div>
       <div class="header-right">
@@ -64,7 +75,7 @@
     </div>
 
     <div class="question_list">
-      <div class="question_box">
+      <div class="question_box" data-qnum="wq1">
         <div class="q_num">q1</div>
         <p class="q_text">HTML이 의미하는 바는 무엇인가</p>
         <div class="q_choices">
@@ -87,7 +98,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="wq2">
         <div class="q_num">q2</div>
         <p class="q_text">
           웹 브라우저 화면에는 직접 보이지 않지만 문서의 정보(인코딩, 제목 등)를
@@ -101,7 +112,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="wq3">
         <div class="q_num">Q3</div>
         <p class="q_text">
           웹 문서에서 핵심이 되는 내용을 담으며, 문서 내에서 단 한 번만 사용해야
@@ -115,7 +126,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="wq4">
         <div class="q_num">Q4</div>
         <p class="q_text">
           순서가 없는 목록(불릿 포인트 형태)을 만들 때 사용하는 태그는?
@@ -128,7 +139,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="wq5">
         <div class="q_num">Q5</div>
         <p class="q_text">
           입력란에 마우스 커서를 클릭하면 사라지는 힌트 메시지를 표시하는
@@ -146,7 +157,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="wq6">
         <div class="q_num">Q6</div>
         <p class="q_text">
           CSS에서 페이지에 있는 모든 요소를 대상으로 스타일을 적용할 때 사용하는
@@ -171,7 +182,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="wq7">
         <div class="q_num">Q7</div>
         <p class="q_text">
           CSS에서 한 문서 내에 딱 한 번만 사용할 수 있는 고유한 요소를 선택할 때
@@ -196,7 +207,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="wq8">
         <div class="q_num">Q8</div>
         <p class="q_text">
           외부 CSS 파일을 HTML 문서에 연결할 때 `head` 안에서 사용하는 태그는?
@@ -209,7 +220,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="wq9">
         <div class="q_num">Q9</div>
         <p class="q_text">
           여러 스타일이 충돌할 때, '위에서 아래로 흐르며' 우선순위에 따라
@@ -228,7 +239,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="wq10">
         <div class="q_num">Q10</div>
         <p class="q_text">
           CSS `font-family` 속성에서 여러 글꼴을 나열할 때 사용되는 구분 기호는?
@@ -244,7 +255,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="wq11">
         <div class="q_num">Q11</div>
         <p class="q_text">
           박스 모델에서 콘텐츠 영역과 테두리(border) 사이의 안쪽 여백을 의미하는
@@ -259,7 +270,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="wq12">
         <div class="q_num">Q12</div>
         <p class="q_text">
           박스 모델의 테두리 바깥족 여백을 설정하여 다른 요소와의 거리를
@@ -273,7 +284,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="wq13">
         <div class="q_num">Q13</div>
         <p class="q_text">
           요소를 화면에 표시하지 않고 공간조차 차지하지 않게 만들 때 사용하는
@@ -287,7 +298,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="wq14">
         <div class="q_num">Q14</div>
         <p class="q_text">요소를 왼쪽이나 오른쪽에 떠있게 만드는 속성은?</p>
         <div class="q_choices">
@@ -300,7 +311,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="wq15">
         <div class="q_num">Q15</div>
         <p class="q_text">
           문서의 기본 흐름에서 벗어나 요소를 원하는 좌표에 자유롭게 배치하거나,
@@ -318,8 +329,26 @@
       </div>
     </div>
     <div class="submit_box">
-      <button type="button" class="btn_submit">제출하기</button>
+      <button type="button" class="btn_submit" id="btn-submit">제출하기</button>
     </div>
+
+    <div class="custom-modal-overlay" id="result-modal">
+      <div class="custom-modal">
+        <h2 id="modal-title">퀴즈 결과</h2>
+        <p id="modal-content">정답: -개 / 오답: -개</p>
+        <div class="custom-modal-buttons">
+          <button type="button" class="btn-close" id="btn-modal-close">
+            확인
+          </button>
+          <a href="wrong_notes.html" class="btn-wrong-notes"
+            >오답노트 바로가기</a
+          >
+        </div>
+      </div>
+    </div>
+
     <footer>© 김정현진과 유청림성준. All rights reserved.</footer>
+
+    <script src="../../script/quiz.js"></script>
   </body>
 </html>

@@ -14,8 +14,19 @@
     <link rel="stylesheet" href="../../style/banner.css" />
     <link rel="stylesheet" href="../../style/card.css" />
     <link rel="stylesheet" href="../../style/question.css" />
+    <link rel="stylesheet" href="../../style/quiz.css" />
   </head>
   <body>
+    <div class="sticky-status-bar">
+      <div class="status-timer" id="timer-display">⏱️ 남은 시간 - 15:00</div>
+      <div class="status-progress-container">
+        <div class="status-progress-bar">
+          <div class="status-progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="status-progress-text" id="progress-text">0 / 15</div>
+      </div>
+    </div>
+
     <header>
       <div class="header-left">
         <a href="../../../index.html" class="logo">
@@ -26,11 +37,13 @@
               -webkit-text-fill-color: transparent;
             "
             >🛡️</span
-          ><span style="font-style: italic">STUDEO</span>
+          >
+          <span style="font-style: italic">STUDEO</span>
         </a>
         <ul class="nav-links">
           <li><a href="../learn.html">학습</a></li>
           <li class="active"><a href="./quizzes.html">퀴즈</a></li>
+          <li><a href="../../pages/mistake.html">오답노트</a></li>
         </ul>
       </div>
       <div class="header-right">
@@ -56,70 +69,71 @@
       <div class="tabs">
         <span
           >출제 범위 |
-          <span style="font-size: smaller">
-            네트워크 기초, 네트워크 개념, 네트워크 기술, 데이터 전송, MAC 계층
-          </span></span
+          <span style="font-size: smaller"
+            >네트워크 기초, 네트워크 개념, 네트워크 기술, 데이터 전송, MAC
+            계층</span
+          ></span
         >
       </div>
     </div>
 
     <div class="question_list">
-      <div class="question_box">
+      <div class="question_box" data-qnum="net1">
         <div class="q_num">q1</div>
         <p class="q_text">
           네트워크의 기초 용어에 대한 설명으로 옳은 것을 고르시오.
         </p>
         <div class="q_choices">
           <label
-            ><input type="radio" name="net1" value="1" /> 1. 네트워크는
+            ><input type="checkbox" name="net1" value="1" /> 1. 네트워크는
             하드웨어적인 전송 매체를 매개로 서로 연결되어 데이터를 교환하는
             시스템의 모음이다.</label
           >
           <label
-            ><input type="radio" name="net1" value="2" /> 2. 시스템과 전송
+            ><input type="checkbox" name="net1" value="2" /> 2. 시스템과 전송
             매체의 연결 지점에 대한 규격이 프로토콜이다.</label
           >
           <label
-            ><input type="radio" name="net1" value="3" /> 3. 시스템이 데이터를
-            교환할 때는 소프트웨어적으로 동작하는 통신 규칙인 인터페이스가
-            필요하다.</label
+            ><input type="checkbox" name="net1" value="3" /> 3. 시스템이
+            데이터를 교환할 때는 소프트웨어적으로 동작하는 통신 규칙인
+            인터페이스가 필요하다.</label
           >
           <label
-            ><input type="radio" name="net1" value="4" /> 4. 인터페이스와
+            ><input type="checkbox" name="net1" value="4" /> 4. 인터페이스와
             프로토콜은 서로 다른 시스템을 상호 연동해 동작시키기 위함이니, 연동
             형식의 통일은 필요하지 않다.</label
           >
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="net2">
         <div class="q_num">q2</div>
         <p class="q_text">프로토콜에 대한 설명으로 옳은 것을 고르시오.</p>
         <div class="q_choices">
           <label
-            ><input type="radio" name="net2" value="1" /> 1. 논리적으로 상호
+            ><input type="checkbox" name="net2" value="1" /> 1. 논리적으로 상호
             연동되는 시스템이 전송 매체를 통해 데이터를 교환할 때는 표준화된
             대화 규칙을 따른다.</label
           >
           <label
-            ><input type="radio" name="net2" value="2" /> 2. 일반적으로
+            ><input type="checkbox" name="net2" value="2" /> 2. 일반적으로
             인터페이스는 상하 관계가 아닌 동등한 위치에 있는 시스템 사이의
             규칙이다.</label
           >
           <label
-            ><input type="radio" name="net2" value="3" /> 3. 프로토콜은 두
+            ><input type="checkbox" name="net2" value="3" /> 3. 프로토콜은 두
             시스템이 연동하기 위한 특정한 접촉 지점을 의미하는 경우가 많지만,
             인터페이스와 비교하여 인용될 때는 상하 개념이 적용된다.</label
           >
           <label
-            ><input type="radio" name="net2" value="4" /> 4. 인터페이스는
+            ><input type="checkbox" name="net2" value="4" /> 4. 인터페이스는
             주고받는 데이터의 형식과 그 과정에서 발생하는 일련의 절차적 순서에
             무게를 둔다.</label
           >
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="net3">
         <div class="q_num">Q3</div>
         <p class="q_text">시스템에 대한 설명으로 잘못된 것을 모두 고르시오.</p>
         <div class="q_choices">
@@ -145,18 +159,18 @@
           >
           <label
             ><input type="checkbox" name="net3" value="5" /> 5. 호스트는 인터넷
-            바깥쪽에 연결되어 일반 사용자들의 네트워크 접속 창구 역할을 한다.
+            바깥쪽에 연결되어 일반 사용자들의 네트워크 접속 창구 역할을
             한다.</label
           >
           <label
             ><input type="checkbox" name="net3" value="6" /> 6. 호스트는 호스트
-            사이에 제공되는 서비스를 기준으로 크라이언트와 서버로 나눌 수 있다.
-            한다.</label
+            사이에 제공되는 서비스를 기준으로 크라이언트와 서버로 나눌 수
+            있다.</label
           >
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="net4">
         <div class="q_num">Q4</div>
         <p class="q_text">모듈화에 대한 설명으로 올바른 것을 모두 고르시오.</p>
         <div class="q_choices">
@@ -187,7 +201,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="net5">
         <div class="q_num">Q5</div>
         <p class="q_text">
           계층 구조에 대한 설명으로 올바른 것을 모두 고르시오.
@@ -226,7 +240,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="net6">
         <div class="q_num">Q6</div>
         <p class="q_text">
           프로토콜 설계 시 주소 표현에 대한 설명으로 올바른 것을 모두 고르시오.
@@ -254,7 +268,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="net7">
         <div class="q_num">Q7</div>
         <p class="q_text">
           라우팅 기능에 대한 설명으로 잘못된 것을 모두 고르시오.
@@ -289,7 +303,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="net8">
         <div class="q_num">Q8</div>
         <p class="q_text">
           패킷 교환 방식의 장점에 대한 설명으로 잘못된 것을 모두 고르시오.
@@ -321,12 +335,11 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="net9">
         <div class="q_num">Q9</div>
         <p class="q_text">
           가상 회선 방식에 대한 설명으로 잘못된 것을 모두 고르시오.
         </p>
-
         <div class="q_choices">
           <label
             ><input type="checkbox" name="net9" value="1" /> 1. 데이터를 회선
@@ -350,13 +363,12 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="net10">
         <div class="q_num">Q10</div>
         <p class="q_text">
           CSS `font-family` 전송과 라우팅에 대한 설명으로 올바른 것을 모두
           고르시오.
         </p>
-
         <div class="q_choices">
           <label
             ><input type="checkbox" name="net10" value="1" /> 1. 송신 호스트가
@@ -380,19 +392,18 @@
             포함된다.</label
           >
           <label
-            ><input type="checkbox" name="net10" value="5" /> 5. 올바른 경로를
+            ><input type="checkbox" name="net10" value="5" /> 5. 올바른 경로을
             선택하기 위해 라우팅 기능을 수행하는 호스트를 라우터라 하며, 경로
             선택과 관련된 정보를 라우팅 테이블에 저장하여 관리한다.</label
           >
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="net11">
         <div class="q_num">Q11</div>
         <p class="q_text">
           전송 방식에 대한 설명으로 올바른 것을 모두 고르시오.
         </p>
-
         <div class="q_choices">
           <label
             ><input type="checkbox" name="net11" value="1" /> 1. 각 호스트를
@@ -415,11 +426,6 @@
             네트워크에 연결된 모든 호스트에 데이터가 전송된다.</label
           >
           <label
-            ><input type="checkbox" name="net11" value="4" /> 4. 점대점
-            방식에서는 공유 전송 매체 하나에 여러 호스트를 연결하기 때문에
-            네트워크에 연결된 모든 호스트에 데이터가 전송된다.</label
-          >
-          <label
             ><input type="checkbox" name="net11" value="5" /> 5. 브로드캐스팅
             방식에서 자신을 목적지로 하지 않는 데이터를 받은 호스트는 받은
             데이터를 버려 결국 하나의 수신 호스트만 데이터를 수신하도록 설계해야
@@ -428,7 +434,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="net12">
         <div class="q_num">Q12</div>
         <p class="q_text">
           점대점 방식에 대한 설명으로 올바른 것을 모두 고르시오
@@ -461,7 +467,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="net13">
         <div class="q_num">Q13</div>
         <p class="q_text">
           MAC 계층에 대한 설명으로 잘못된 것을 모두 고르시오.
@@ -483,8 +489,8 @@
             구분된다.</label
           >
           <label
-            ><input type="checkbox" name="net13" value="4" /> 4. 토큰 버스는
-            공유 버스를 이용해 호스트를 연결하는 CSMA/CD 방식을 지원한다.</label
+            ><input type="checkbox" name="net13" value="4" /> 4. 토큰 버스를
+            이용해 호스트를 연결하는 CSMA/CD 방식을 지원한다.</label
           >
           <label
             ><input type="checkbox" name="net13" value="5" /> 5. 토큰 링 방식은
@@ -494,7 +500,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="net14">
         <div class="q_num">Q14</div>
         <p class="q_text">
           LLC 계층에 대한 설명으로 잘못된 것을 모두 고르시오.
@@ -522,7 +528,7 @@
         </div>
       </div>
 
-      <div class="question_box">
+      <div class="question_box" data-qnum="net15">
         <div class="q_num">Q15</div>
         <p class="q_text">
           IEEE 802 시리즈에 대한 설명으로 잘못된 것을 모두 고르시오.
@@ -549,15 +555,33 @@
           >
           <label
             ><input type="checkbox" name="net15" value="5" /> 5. CSMA/CD, 토큰
-            버스, 토큰 링의 IEEE 시리즈는 모두 무선 환경에 대한
-            표준안이다.</label
+            버, 토큰 링의 IEEE 시리즈는 모두 무선 환경에 대한 표준안이다.</label
           >
         </div>
       </div>
     </div>
+
     <div class="submit_box">
-      <button type="button" class="btn_submit">제출하기</button>
+      <button type="button" class="btn_submit" id="btn-submit">제출하기</button>
     </div>
+
+    <div class="custom-modal-overlay" id="result-modal">
+      <div class="custom-modal">
+        <h2 id="modal-title">퀴즈 결과</h2>
+        <p id="modal-content">정답: -개 / 오답: -개</p>
+        <div class="custom-modal-buttons">
+          <button type="button" class="btn-close" id="btn-modal-close">
+            확인
+          </button>
+          <a href="wrong_notes.html" class="btn-wrong-notes"
+            >오답노트 바로가기</a
+          >
+        </div>
+      </div>
+    </div>
+
     <footer>© 김정현진과 유청림성준. All rights reserved.</footer>
+
+    <script src="../../script/quiz.js"></script>
   </body>
 </html>
