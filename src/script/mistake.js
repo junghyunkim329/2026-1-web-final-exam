@@ -1,3 +1,27 @@
+// ✅ 유저 데이터 키 생성
+function getUserDataKey(type, user) {
+  return `${type}_${user}`
+}
+
+// ✅ 로컬스토리지에서 유저의 오답 불러오기
+function loadUserMistakes(user) {
+  const raw = localStorage.getItem(getUserDataKey('mistakes', user))
+  try {
+    return raw ? JSON.parse(raw) : []
+  } catch {
+    return []
+  }
+}
+
+// ✅ 로컬스토리지에 유저의 오답 저장
+function saveUserMistakes(user, mistakes) {
+  localStorage.setItem(getUserDataKey('mistakes', user), JSON.stringify(mistakes))
+}
+
+// 전역 변수로 현재 유저의 오답 배열 관리
+let currentUserMistakes = []
+let currentUser = sessionStorage.getItem('loggedInUser')
+
 // ✅ 에러 초기화
 function clearErrors() {
   document.querySelectorAll('input, textarea').forEach((el) => {
@@ -20,6 +44,20 @@ function addSuccessStyle(el) {
 document.querySelectorAll('input, textarea').forEach((el) => {
   addSuccessStyle(el)
 })
+
+// ✅ 오답 목록 렌더링
+function renderMistakes() {
+  const noteList = document.getElementById('noteList')
+  if (!noteList) return
+  noteList.innerHTML = ''
+  currentUserMistakes.forEach((mistake, index) => {
+    const note = document.createElement('div')
+    note.className = 'note'
+    note.dataset.index = index
+    note.innerHTML = createNoteHTML(mistake.q, mistake.c, mistake.m, mistake.a)
+    noteList.appendChild(note)
+  })
+}
 
 // ✅ 오답 추가
 function addNote() {
@@ -50,12 +88,21 @@ function addNote() {
     return
   }
 
-  const note = document.createElement('div')
-  note.className = 'note'
+  // 배열에 추가
+  currentUserMistakes.push({
+    q: q.value,
+    c: c.value,
+    m: m.value,
+    a: a.value
+  })
 
-  note.innerHTML = createNoteHTML(q.value, c.value, m.value, a.value)
+  // localStorage 저장
+  if (currentUser) {
+    saveUserMistakes(currentUser, currentUserMistakes)
+  }
 
-  document.getElementById('noteList').appendChild(note)
+  // 화면 렌더링
+  renderMistakes()
 
   // 초기화
   document.querySelectorAll('input, textarea').forEach((el) => {
@@ -79,17 +126,31 @@ function createNoteHTML(q, c, m, a) {
 
 // ✅ 삭제
 function deleteNote(btn) {
-  btn.parentElement.remove()
+  const note = btn.closest('.note')
+  if (!note) return
+  
+  const index = Number(note.dataset.index)
+  if (Number.isNaN(index)) return
+  
+  currentUserMistakes.splice(index, 1)
+  
+  if (currentUser) {
+    saveUserMistakes(currentUser, currentUserMistakes)
+  }
+  
+  renderMistakes()
 }
 
 // ✅ 수정
 function editNote(btn) {
-  const note = btn.parentElement
+  const note = btn.closest('.note')
+  if (!note) return
 
   const q = note.querySelector('.q').innerText
   const c = note.querySelector('.c').innerText
   const m = note.querySelector('.m').innerText
   const a = note.querySelector('.a').innerText
+  const index = note.dataset.index
 
   note.innerHTML = `
     <textarea class="edit-q">${q}</textarea>
@@ -104,14 +165,30 @@ function editNote(btn) {
 
 // ✅ 저장
 function saveNote(btn) {
-  const note = btn.parentElement
+  const note = btn.closest('.note')
+  if (!note) return
 
   const q = note.querySelector('.edit-q').value
   const c = note.querySelector('.edit-c').value
   const m = note.querySelector('.edit-m').value
   const a = note.querySelector('.edit-a').value
+  const index = Number(note.dataset.index)
 
-  note.innerHTML = createNoteHTML(q, c, m, a)
+  if (Number.isNaN(index)) return
+
+  // 배열 업데이트
+  currentUserMistakes[index] = {
+    q: q,
+    c: c,
+    m: m,
+    a: a
+  }
+
+  if (currentUser) {
+    saveUserMistakes(currentUser, currentUserMistakes)
+  }
+
+  renderMistakes()
 }
 
 // ✅ TIP
@@ -152,3 +229,12 @@ function prevTip() {
 function closeTip() {
   document.getElementById('tipModal').classList.remove('show')
 }
+
+// ✅ 페이지 로드 시 저장된 오답 불러오기
+window.addEventListener('DOMContentLoaded', () => {
+  currentUser = sessionStorage.getItem('loggedInUser')
+  if (currentUser) {
+    currentUserMistakes = loadUserMistakes(currentUser)
+    renderMistakes()
+  }
+})
