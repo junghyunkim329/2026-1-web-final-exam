@@ -15,7 +15,10 @@ function loadUserMistakes(user) {
 
 // ✅ 로컬스토리지에 유저의 오답 저장
 function saveUserMistakes(user, mistakes) {
-  localStorage.setItem(getUserDataKey('mistakes', user), JSON.stringify(mistakes))
+  localStorage.setItem(
+    getUserDataKey('mistakes', user),
+    JSON.stringify(mistakes),
+  )
 }
 
 // 전역 변수로 현재 유저의 오답 배열 관리
@@ -93,7 +96,7 @@ function addNote() {
     q: q.value,
     c: c.value,
     m: m.value,
-    a: a.value
+    a: a.value,
   })
 
   // localStorage 저장
@@ -128,16 +131,16 @@ function createNoteHTML(q, c, m, a) {
 function deleteNote(btn) {
   const note = btn.closest('.note')
   if (!note) return
-  
+
   const index = Number(note.dataset.index)
   if (Number.isNaN(index)) return
-  
+
   currentUserMistakes.splice(index, 1)
-  
+
   if (currentUser) {
     saveUserMistakes(currentUser, currentUserMistakes)
   }
-  
+
   renderMistakes()
 }
 
@@ -181,7 +184,7 @@ function saveNote(btn) {
     q: q,
     c: c,
     m: m,
-    a: a
+    a: a,
   }
 
   if (currentUser) {

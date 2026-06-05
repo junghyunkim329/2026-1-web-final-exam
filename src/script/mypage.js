@@ -23,6 +23,39 @@ function saveUserTodos(user, todos) {
   localStorage.setItem(getUserDataKey('todos', user), JSON.stringify(todos))
 }
 
+function loadUserMistakes(user) {
+  const raw = localStorage.getItem(getUserDataKey('mistakes', user))
+  try {
+    return raw ? JSON.parse(raw) : []
+  } catch {
+    return []
+  }
+}
+
+function renderReviewNotes(mistakes) {
+  const reviewList = document.getElementById('review-notes-list')
+  if (!reviewList) return
+  reviewList.innerHTML = ''
+
+  if (!mistakes.length) {
+    reviewList.innerHTML =
+      '<div class="review-note-empty">저장된 오답이 없습니다.</div>'
+    return
+  }
+
+  mistakes.forEach((mistake) => {
+    const card = document.createElement('div')
+    card.className = 'review-note-card'
+    card.innerHTML = `
+      <h4>${mistake.q}</h4>
+      <p><span class="label">정답:</span> ${mistake.c}</p>
+      <p><span class="label">내 답:</span> ${mistake.m}</p>
+      <p><span class="label">분석:</span> ${mistake.a || '없음'}</p>
+    `
+    reviewList.appendChild(card)
+  })
+}
+
 function renderTodoList(todos) {
   const todoList = document.getElementById('todo-list')
   if (!todoList) return
@@ -115,4 +148,7 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     })
   }
+
+  const userMistakes = loadUserMistakes(user)
+  renderReviewNotes(userMistakes)
 })
