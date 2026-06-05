@@ -80,6 +80,13 @@ window.addEventListener('DOMContentLoaded', () => {
       el.style.display = user ? '' : 'none'
     })
   }
+  // 멤버 전용 네비게이션 링크
+  const memberLinks = document.querySelectorAll('.member-only')
+  if (memberLinks.length) {
+    memberLinks.forEach((el) => {
+      el.style.display = user ? '' : 'none'
+    })
+  }
   // 헤더의 로그인 링크 숨김 처리
   const loginBox = document.querySelector('.header-right .login')
   if (loginBox) {
