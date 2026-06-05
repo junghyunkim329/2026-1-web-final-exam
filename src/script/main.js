@@ -73,14 +73,7 @@ window.addEventListener('DOMContentLoaded', () => {
       logoutEl.innerText = ''
     }
   }
-  // // mypage-link 표시 토글
-  // const mypageLinks = document.querySelectorAll('.mypage-link')
-  // if (mypageLinks.length) {
-  //   mypageLinks.forEach((el) => {
-  //     el.style.display = user ? '' : 'none'
-  //   })
-  // }
-  // 멤버 전용 네비게이션 링크
+  // 멤버 전용 링크
   const memberLinks = document.querySelectorAll('.member-only')
   if (memberLinks.length) {
     memberLinks.forEach((el) => {
