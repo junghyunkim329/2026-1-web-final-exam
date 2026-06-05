@@ -1,8 +1,3 @@
-// ✅ 뒤로가기
-function goBack() {
-  window.history.back()
-}
-
 // ✅ 에러 초기화
 function clearErrors() {
   document.querySelectorAll('input, textarea').forEach((el) => {
