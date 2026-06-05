@@ -11,6 +11,14 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../style/style.css" />
+    <script>
+      if (sessionStorage.getItem('loggedInUser')) {
+        alert('로그인 상태입니다.')
+        setTimeout(() => {
+          location.href = '/index.html'
+        }, 100)
+      }
+    </script>
   </head>
 
   <body>
