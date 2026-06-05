@@ -119,6 +119,14 @@ header:not(.main-header) {
   font-size: 14px;
 }
 
+body.main-page .login {
+  color: #ffffff;
+}
+
+body.main-page .mypage-link.member-only img {
+  filter: brightness(0) saturate(100%);
+}
+
 .login-container {
   margin: 170px auto;
   padding: 50px 40px;
