@@ -92,7 +92,13 @@ window.addEventListener('DOMContentLoaded', () => {
   const memberLinks = document.querySelectorAll('.member-only')
   if (memberLinks.length) {
     memberLinks.forEach((el) => {
-      el.style.display = user ? '' : 'none'
+      if (user) {
+        // 로그인 상태면 자바스크립트로 넣은 display 속성을 제거 (기본 CSS 적용)
+        el.style.removeProperty('display')
+      } else {
+        // 로그아웃 상태면 무조건! 가장 높은 우선순위로 숨김 처리
+        el.style.setProperty('display', 'none', 'important')
+      }
     })
   }
   // 헤더의 로그인 링크 숨김 처리
