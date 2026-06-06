@@ -1,3 +1,18 @@
+// 햄버거 메뉴
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileMenuBtn = document.getElementById('mobile-menu')
+  const navLinks = document.querySelector('.nav-links')
+  const headerRight = document.querySelector('.header-right')
+
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
+      // 참고용 코드처럼 active 클래스를 토글하여 메뉴를 열고 닫습니다.
+      navLinks.classList.toggle('active')
+      headerRight.classList.toggle('active')
+    })
+  }
+})
+
 function signUp() {
   const id = document.getElementById('signup-id').value
   const pw = document.getElementById('signup-pw').value
